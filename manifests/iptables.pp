@@ -23,7 +23,7 @@ class privy::iptables (
       }
     }
     'Debian' : {
-      if $facts['os']['release']['major'] == '8' { 
+      if ($facts['os']['release']['major'] == '8') or ($facts['os']['release']['major'] == '9') { 
         package { 'iptables-persistent': ensure => present, }
         file { '/etc/iptables/rules.v4':
           ensure => file,
